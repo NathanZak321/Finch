@@ -1,0 +1,10 @@
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\bin\Debug\Project_FinchControl.exe.config
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\bin\Debug\Project_FinchControl.exe
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\bin\Debug\Project_FinchControl.pdb
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\bin\Debug\FinchAPI.dll
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\bin\Debug\HidSharp.dll
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\obj\Debug\Project_FinchControl.csprojAssemblyReference.cache
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\obj\Debug\Project_FinchControl.csproj.CoreCompileInputs.cache
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\obj\Debug\Project_FinchControl.csproj.CopyComplete
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\obj\Debug\Project_FinchControl.exe
+C:\Users\natha\Downloads\Project_FinchControl.Str-master\Project_FinchControl.Str-master\Project_FinchControl\obj\Debug\Project_FinchControl.pdb

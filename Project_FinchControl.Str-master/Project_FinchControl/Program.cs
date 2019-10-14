@@ -135,11 +135,129 @@ namespace Project_FinchControl
         /// </summary>
         static void DisplayDataRecorder(Finch finchRobot)
         {
+            double dataPointFrequency;
+            int numberOfDataPoints;
+
             DisplayScreenHeader("Data Recordings");
+            Console.WriteLine("Now collecting input values.");
+
+            // give the user some info about what is going to happen
+            //( take the input values and display them back to user
+
+            dataPointFrequency = DisplayGetDataPointFrequency();
+            numberOfDataPoints = DisplayGetNumberOfDataPoints();
+
+            double[] temperatures = new double[numberOfDataPoints];
+            DisplayGetData(numberOfDataPoints, dataPointFrequency, temperatures, finchRobot);
+            DisplayData(temperatures);
 
             DisplayContinuePrompt();
         }
 
+        /// <summary>
+        /// Get Data Display
+        /// </summary>
+        static void DisplayGetData(
+            int numberOfDataPoints, 
+            double dataPointFrequency, 
+            double[] temperatures, 
+            Finch finchRobot)
+        {
+            DisplayScreenHeader("Get Temperatures");
+
+            Console.WriteLine("Now Collecting Temperature.");
+            // give the user info and a prompt
+            //(gathering temperatures from finch robot)
+
+            for (int index = 0; index < numberOfDataPoints; index++)
+            {
+                temperatures[index] = finchRobot.getTemperature();
+                int milliseconds = (int)(dataPointFrequency * 1000);
+                finchRobot.wait(milliseconds);
+
+                Console.WriteLine($"Temperature {index + 1}: {temperatures[index]}");
+
+
+                DisplayContinuePrompt();
+            }
+
+        }
+        
+        /// <summary>
+        /// Data Display
+        /// </summary>
+        static void DisplayData(double[] temperatures)
+        {
+            DisplayScreenHeader("Temperatures");
+
+            for (int index = 0; index < temperatures.Length; index++)
+            {
+                Console.WriteLine($"Temperature {index + 1}: {temperatures[index]}");
+            }
+
+            
+            DisplayContinuePrompt();
+
+
+        }
+          
+
+        /// <summary>
+        /// # of data points
+        /// </summary>
+        static int DisplayGetNumberOfDataPoints()
+        {
+            int numberOfDataPoints;
+
+            DisplayScreenHeader("Number of Data Points");
+
+            Console.Write("Enter the number of data points");
+            //int.TryParse(Console.ReadLine(), out numberOfDataPoints);
+
+            if(int.TryParse(Console.ReadLine(), out numberOfDataPoints))
+            {
+                Console.WriteLine("Perfect!");
+            }
+            else
+            {
+                 Console.WriteLine("This is not a number!");
+            }
+
+
+            DisplayContinuePrompt();
+
+            return numberOfDataPoints;
+        }
+
+        /// <summary>
+        /// Point Frequency
+        /// </summary>
+        static double DisplayGetDataPointFrequency()
+        {
+            double dataPointFrequency;
+            //string userResponse;
+
+
+            DisplayScreenHeader("Data Point Frequency");
+
+            Console.Write("Enter Frequency of Recordings:");
+            //userResponse = Console.ReadLine();
+            //double.TryParse(userResponse, out dataPointFrequency);
+            double.TryParse(Console.ReadLine(), out dataPointFrequency);
+
+            if (double.TryParse(Console.ReadLine(), out dataPointFrequency))
+            {
+                Console.WriteLine("Epic");
+            }
+            else 
+            {
+                Console.WriteLine("Not a number, please restart.");
+            }
+
+            DisplayContinuePrompt();
+
+            return dataPointFrequency;
+        }
         /// <summary>
         /// Talent Show
         /// </summary>
@@ -176,13 +294,20 @@ namespace Project_FinchControl
             Console.ReadKey(); finchRobot.setMotors(100, 75);
 
             finchRobot.setLED(255, 0, 0);
-            finchRobot.wait(10000);
+            finchRobot.wait(9000);
+            finchRobot.noteOn(10000);
+            finchRobot.wait(1000);
+            finchRobot.noteOff();
 
             finchRobot.setLED(0, 255, 0);
-            finchRobot.wait(10000);
+            finchRobot.wait(11000);
+            finchRobot.noteOn(7000);
+            finchRobot.wait(1500);
 
             finchRobot.setLED(0, 0, 255);
-            finchRobot.wait(10000);
+            finchRobot.wait(12000);
+            finchRobot.noteOn(6500);
+            finchRobot.wait(500);
 
             //for (int lightLevel = 0; lightLevel < 255; lightLevel++)
             //{
